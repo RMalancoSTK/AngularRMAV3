@@ -1,0 +1,11 @@
+{
+  "my_data": [
+    {
+      "name": "Rafael Malanco Velazquez",
+      "age": 40,
+      "is": "RMAV03",
+      "city": "Metepec",
+      "state": "Mexico"
+    }
+  ]
+}
