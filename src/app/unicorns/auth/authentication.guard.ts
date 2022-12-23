@@ -5,11 +5,13 @@ import {
   CanActivateChild,
   CanLoad,
   Route,
+  Router,
   RouterStateSnapshot,
   UrlSegment,
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +19,11 @@ import { Observable } from 'rxjs';
 export class AuthenticationGuard
   implements CanActivate, CanActivateChild, CanLoad
 {
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -25,7 +32,7 @@ export class AuthenticationGuard
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return true;
+    return this.isAuthenticated();
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
@@ -35,7 +42,7 @@ export class AuthenticationGuard
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return true;
+    return this.isAuthenticated();
   }
   canLoad(
     route: Route,
@@ -45,6 +52,15 @@ export class AuthenticationGuard
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return true;
+    return this.isAuthenticated();
+  }
+
+  private isAuthenticated(): boolean {
+    if (!this.authenticationService.isLoggedIn()) {
+      this.router.navigate(['/login']);
+      return false;
+    } else {
+      return true;
+    }
   }
 }
