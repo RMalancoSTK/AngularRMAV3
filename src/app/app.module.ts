@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table';
+import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +16,7 @@ import { MatTableModule } from '@angular/material/table';
     NgbModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatTableModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

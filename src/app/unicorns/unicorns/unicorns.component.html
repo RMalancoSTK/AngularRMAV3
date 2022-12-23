@@ -11,30 +11,26 @@
             </div>
             <div class="card-body">
               <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-                <!-- 'Id',    'FirstName',    'LastName',    'Email',    'Gender',    'JobTitle', -->
-                <ng-container matColumnDef="Id">
-                  <th mat-header-cell *matHeaderCellDef> Id </th>
-                  <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
-                </ng-container>
-                <ng-container matColumnDef="FirstName">
+                <ng-container matColumnDef="name">
                   <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                  <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
                 </ng-container>
-                <ng-container matColumnDef="LastName">
-                  <th mat-header-cell *matHeaderCellDef> Apellido </th>
-                  <td mat-cell *matCellDef="let element"> {{element.LastName}} </td>
+                <ng-container matColumnDef="age">
+                  <th mat-header-cell *matHeaderCellDef> Edad </th>
+                  <td mat-cell *matCellDef="let element"> {{element.age}} </td>
                 </ng-container>
-                <ng-container matColumnDef="Email">
-                  <th mat-header-cell *matHeaderCellDef> Email </th>
-                  <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+                <ng-container matColumnDef="colour">
+                  <th mat-header-cell *matHeaderCellDef> Color </th>
+                  <td mat-cell *matCellDef="let element"> {{element.colour}} </td>
                 </ng-container>
-                <ng-container matColumnDef="Gender">
-                  <th mat-header-cell *matHeaderCellDef> Gender </th>
-                  <td mat-cell *matCellDef="let element"> {{element.Gender}} </td>
-                </ng-container>
-                <ng-container matColumnDef="JobTitle">
-                  <th mat-header-cell *matHeaderCellDef> JobTitle </th>
-                  <td mat-cell *matCellDef="let element"> {{element.JobTitle}} </td>
+                <!-- Actions -->
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                  <td mat-cell *matCellDef="let element">
+                    <a class="btn" [routerLink]="['/unicorns', element._id]">Ver</a>
+                    <a class="btn">Editar</a>
+                    <a class="btn">Eliminar</a>
+                  </td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
