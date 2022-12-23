@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div class="login-d">
+  <mat-form-field apeareance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="user.username" name="username">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="user.password" name="password" type="password">
+  </mat-form-field>
+  <button mat-raised-button color="accent" (click)="login()">Login</button>
+</div>

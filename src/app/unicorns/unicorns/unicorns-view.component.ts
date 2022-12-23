@@ -7,7 +7,7 @@ import { Unicorns } from '../interfaces/unicorns';
   templateUrl: './unicorns-view.component.html',
 })
 export class UnicornsViewComponent implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) public unicorn: Unicorns) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public unicorn: any) {}
 
   ngOnInit(): void {}
 }

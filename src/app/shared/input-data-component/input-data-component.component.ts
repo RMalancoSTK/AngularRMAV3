@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ControlContainer, NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-data-componen',
+  selector: 'app-input-data-component',
   templateUrl: './input-data-component.component.html',
   viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
 })

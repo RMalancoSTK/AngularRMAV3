@@ -25,7 +25,5 @@ export class AuthenticationService {
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
-    // esto es lo mismo que:
-    // return localStorage.getItem('token') !== null;
   }
 }
