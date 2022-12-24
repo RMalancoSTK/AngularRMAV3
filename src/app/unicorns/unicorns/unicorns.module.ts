@@ -22,6 +22,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { UnicornsComponent } from './unicorns.component';
 import { UnicornsViewComponent } from './unicorns-view.component';
 import { UnicornsUpdateComponent } from './unicorns-update.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { UnicornsUpdateComponent } from './unicorns-update.component';
     MatFormFieldModule,
     FormsModule,
     FlexLayoutModule,
+    SharedModule,
   ],
   declarations: [
     UnicornsComponent,

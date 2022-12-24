@@ -25,7 +25,7 @@ export class InputDataComponentComponent implements OnInit {
         $this.val = event.target.value;
         $this.updateValue();
       }
-    }, 1000);
+    }, 500);
   }
 
   updateValue() {

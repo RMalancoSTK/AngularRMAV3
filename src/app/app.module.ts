@@ -19,7 +19,6 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    SharedModule,
   ],
   providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
   bootstrap: [AppComponent],

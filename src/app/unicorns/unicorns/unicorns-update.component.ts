@@ -1,6 +1,14 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UnicornsService } from '../services/unicorns.service';
+import { Unicorns } from '../interfaces/unicorns';
 
 @Component({
   selector: 'app-unicorns-update',
@@ -14,26 +22,27 @@ export class UnicornsUpdateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.unicorn);
     if (!this.unicorn) {
-      this.unicorn = { name: '', age: 0, colour: '' };
+      this.unicorn = { name: '', colour: '', age: 0 };
     }
   }
 
   getData(event: any): void {
-    this.unicorn.name = event.name;
+    this.unicorn.name = event;
+    //console.log(this.unicorn.name);
   }
-
-  getColor(event: any): void {
-    this.unicorn.colour = event.colour;
-  }
-
   getEdad(event: any): void {
-    this.unicorn.age = event.age;
+    this.unicorn.age = event;
+    //console.log(this.unicorn.age);
+  }
+  getColor(event: any): void {
+    this.unicorn.colour = event;
+    //console.log(this.unicorn.colour);
   }
 
   save(): void {
-    if (this.unicorn && this.unicorn._id) {
+    //console.log(this.unicorn);
+    if (this.unicorn._id) {
       this.unicornService
         .putUnicorn(this.unicorn, this.unicorn._id)
         .subscribe((res) => {
