@@ -3,6 +3,7 @@ import { UnicornsService } from '../services/unicorns.service';
 import { Unicorns } from '../interfaces/unicorns';
 import { UnicornsViewComponent } from './unicorns-view.component';
 import { MatDialog } from '@angular/material/dialog';
+import { UnicornsUpdateComponent } from './unicorns-update.component';
 
 @Component({
   selector: 'app-unicorns',
@@ -12,9 +13,6 @@ import { MatDialog } from '@angular/material/dialog';
 export class UnicornsComponent implements OnInit {
   displayedColumns: string[] = ['name', 'age', 'colour', 'actions'];
   dataSource: Unicorns[] = [];
-  name: any;
-  age: any;
-  colour: any;
 
   constructor(
     private unicornsService: UnicornsService,
@@ -27,11 +25,15 @@ export class UnicornsComponent implements OnInit {
     });
   }
 
-  openDialog(): void {
+  openDialogViewUnicorn(unicorns: Unicorns) {
     const dialogRef = this.dialog.open(UnicornsViewComponent, {
-      width: '400px',
-      height: '400px',
-      data: { name: this.name, age: this.age, colour: this.colour },
+      data: unicorns,
+    });
+  }
+
+  openDialogEditUnicorn(unicorns: Unicorns) {
+    const dialogRef = this.dialog.open(UnicornsUpdateComponent, {
+      data: unicorns,
     });
   }
 }

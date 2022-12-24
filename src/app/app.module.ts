@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './shared/material.module';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    SharedModule,
   ],
   providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
   bootstrap: [AppComponent],

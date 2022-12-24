@@ -14,8 +14,9 @@ export class UnicornsUpdateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.unicorn);
     if (!this.unicorn) {
-      this.unicorn = { name: '', age: undefined, colour: '' };
+      this.unicorn = { name: '', age: 0, colour: '' };
     }
   }
 

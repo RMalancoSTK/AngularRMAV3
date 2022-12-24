@@ -5,6 +5,9 @@
 /*Importar boostrap*/
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
+/*Importar FxLayout*/
+/* @import "~@angular/flex-layout/flexbox/flexbox.css"; */
+
 html,
 body {
   height: 100%;
