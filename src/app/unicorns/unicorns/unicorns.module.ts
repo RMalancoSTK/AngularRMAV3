@@ -47,5 +47,6 @@ import { UnicornsUpdateComponent } from './unicorns-update.component';
     UnicornsUpdateComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [UnicornsViewComponent, UnicornsUpdateComponent],
 })
 export class UnicornsModule {}

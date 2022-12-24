@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Unicorns } from '../interfaces/unicorns';
 
 @Component({
   selector: 'app-unicorns-view',
