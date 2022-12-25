@@ -31,5 +31,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-
-// commando para crear un modulo sin test: ng g m unicorns --skip-tests

@@ -7,8 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './shared/material.module';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +18,7 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     MaterialModule,
   ],
-  providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Data } from '../interfaces/data';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-welcome',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, Route } from '@angular/router';
+import { Router } from '@angular/router';
 import { AppsettingsService } from './unicorns/services/appsettings.service';
 import { AuthenticationService } from './unicorns/services/authentication.service';
 

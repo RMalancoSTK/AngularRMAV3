@@ -2,13 +2,10 @@ import { NgModule } from '@angular/core';
 import { WelcomeRouteModule } from './welcome.route';
 import { WelcomeComponent } from './welcome.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
-// Material Components
-import { MatTableModule } from '@angular/material/table';
-import { MatCardModule } from '@angular/material/card';
+import { MaterialModule } from '../../shared/material.module';
 
 @NgModule({
-  imports: [WelcomeRouteModule, MatTableModule, MatCardModule],
+  imports: [WelcomeRouteModule, MaterialModule],
   declarations: [WelcomeComponent],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

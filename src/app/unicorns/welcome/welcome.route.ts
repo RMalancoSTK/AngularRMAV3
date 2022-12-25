@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './welcome.component';
-//mat-table import
-import { MatTableModule } from '@angular/material/table';
+import { MaterialModule } from '../../shared/material.module';
 
 const welcomeRoute: Routes = [
   {
@@ -15,7 +14,7 @@ const welcomeRoute: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(welcomeRoute), MatTableModule],
+  imports: [RouterModule.forChild(welcomeRoute), MaterialModule],
   exports: [RouterModule],
 })
 export class WelcomeRouteModule {}

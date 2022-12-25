@@ -16,7 +16,6 @@ export class UnicornsComponent implements AfterViewInit {
   displayedColumns: string[] = ['name', 'age', 'colour', 'actions'];
   my_data: Unicorns[] = [];
   dataSource = new MatTableDataSource<Unicorns>(this.my_data);
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
