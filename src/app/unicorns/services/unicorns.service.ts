@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { AppConstants } from 'src/app/app.constants';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,17 +10,21 @@ import { AppConstants } from 'src/app/app.constants';
 export class UnicornsService {
   private resourceUrl = AppConstants.API_BASE_URL;
   private resourceID = AppConstants.API_ID;
+  public unicornsSubject = new BehaviorSubject<any>([]);
 
   constructor(private http: HttpClient) {}
 
   // GET
   getUnicorns(): Observable<HttpResponse<any>> {
-    return this.http.get<any>(
-      `${this.resourceUrl}/${this.resourceID}/unicorns`,
-      {
+    return this.http
+      .get<any>(`${this.resourceUrl}/${this.resourceID}/unicorns`, {
         observe: 'response',
-      }
-    );
+      })
+      .pipe(
+        tap((unicorns) => {
+          this.unicornsSubject.next(unicorns.body);
+        })
+      );
   }
 
   // GET BY ID

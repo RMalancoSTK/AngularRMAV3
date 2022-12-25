@@ -1,33 +1,37 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { OnInit, Component, ViewChild, AfterViewInit } from '@angular/core';
 import { UnicornsService } from '../services/unicorns.service';
 import { Unicorns } from '../interfaces/unicorns';
 import { UnicornsViewComponent } from './unicorns-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UnicornsUpdateComponent } from './unicorns-update.component';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-unicorns',
   templateUrl: './unicorns.component.html',
   styles: [],
 })
-export class UnicornsComponent implements OnInit {
+export class UnicornsComponent implements AfterViewInit {
+  displayedColumns: string[] = ['name', 'age', 'colour', 'actions'];
+  my_data: Unicorns[] = [];
+  dataSource = new MatTableDataSource<Unicorns>(this.my_data);
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  displayedColumns: string[] = ['name', 'age', 'colour', 'actions'];
-  // dataSource: Unicorns[] = [];
-  dataSource = new MatTableDataSource<Unicorns>();
-
   constructor(
-    private unicornsService: UnicornsService,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private unicornsService: UnicornsService
+  ) {
+    this.unicornsService.unicornsSubject.subscribe((data) => {
+      this.dataSource.data = data;
+    });
+  }
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.unicornsService.getUnicorns().subscribe((data) => {
-      this.dataSource = data.body;
+      this.dataSource.data = data.body;
     });
   }
 
@@ -36,29 +40,32 @@ export class UnicornsComponent implements OnInit {
       width: '500px',
       data: unicorns,
     });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.unicornsService.getUnicorns().subscribe((data) => {});
+    });
   }
 
   openDialogEditUnicorn(unicorns: Unicorns) {
     const dialogRef = this.dialog.open(UnicornsUpdateComponent, {
       data: unicorns,
     });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.unicornsService.getUnicorns().subscribe((data) => {});
+    });
   }
 
   openDialogCreateUnicorn() {
-    // cuando se crea un unicornio y finaliza el proceso, se recarga la tabla
     const dialogRef = this.dialog.open(UnicornsUpdateComponent, {
       data: null,
     });
     dialogRef.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+      this.unicornsService.getUnicorns().subscribe((data) => {});
     });
   }
 
   deleteUnicorn(_id: string) {
-    //console.log(_id);
-    this.unicornsService.deleteUnicorn(_id).subscribe((res) => {
-      //console.log(res);
-      this.ngOnInit();
+    this.unicornsService.deleteUnicorn(_id).subscribe((data) => {
+      this.unicornsService.getUnicorns().subscribe((data) => {});
     });
   }
 }
