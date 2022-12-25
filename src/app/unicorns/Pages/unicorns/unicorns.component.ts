@@ -1,6 +1,6 @@
 import { OnInit, Component, ViewChild, AfterViewInit } from '@angular/core';
-import { UnicornsService } from '../services/unicorns.service';
-import { Unicorns } from '../interfaces/unicorns';
+import { UnicornsService } from '../../services/unicorns.service';
+import { Unicorns } from '../../interfaces/unicorns';
 import { UnicornsViewComponent } from './unicorns-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UnicornsUpdateComponent } from './unicorns-update.component';

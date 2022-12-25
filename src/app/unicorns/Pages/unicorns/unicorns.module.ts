@@ -8,8 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { UnicornsComponent } from './unicorns.component';
 import { UnicornsViewComponent } from './unicorns-view.component';
 import { UnicornsUpdateComponent } from './unicorns-update.component';
-import { SharedModule } from '../../shared/shared.module';
-import { MaterialModule } from '../../shared/material.module';
+import { SharedModule } from '../../../shared/shared.module';
+import { MaterialModule } from '../../../shared/material.module';
 
 @NgModule({
   imports: [

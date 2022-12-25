@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DataService } from '../services/data.service';
-import { Data } from '../interfaces/data';
+import { DataService } from '../../services/data.service';
+import { Data } from '../../interfaces/data';
 
 @Component({
   selector: 'app-welcome',
