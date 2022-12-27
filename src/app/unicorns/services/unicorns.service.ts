@@ -23,6 +23,7 @@ export class UnicornsService {
       .pipe(
         tap((unicorns) => {
           this.unicornsSubject.next(unicorns.body);
+          console.log(unicorns.body);
         })
       );
   }
