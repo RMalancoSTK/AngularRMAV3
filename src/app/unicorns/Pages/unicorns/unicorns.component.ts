@@ -31,6 +31,7 @@ export class UnicornsComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.unicornsService.getUnicorns().subscribe((data) => {
       this.dataSource.data = data.body;
+      console.log(data.body);
     });
   }
 
@@ -51,6 +52,7 @@ export class UnicornsComponent implements AfterViewInit {
     dialogRef.afterClosed().subscribe((result) => {
       this.unicornsService.getUnicorns().subscribe((data) => {});
     });
+    console.log(unicorns);
   }
 
   openDialogCreateUnicorn() {

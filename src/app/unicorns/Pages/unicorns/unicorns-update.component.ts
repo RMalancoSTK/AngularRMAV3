@@ -51,6 +51,7 @@ export class UnicornsUpdateComponent implements OnInit {
     } else {
       this.unicornService.postUnicorn(this.unicorn).subscribe((res) => {
         this.dialogRef.close(res.status);
+        console.log(res.status);
       });
     }
   }

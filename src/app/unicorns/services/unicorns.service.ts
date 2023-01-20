@@ -36,6 +36,7 @@ export class UnicornsService {
         observe: 'response',
       }
     );
+    console.log(id);
   }
 
   // POST
